@@ -16,7 +16,7 @@ Way to install this amazing calcs:
 2.          composer install
 3.          yarn install
 4.          yarn encore dev
-5.          symfony server:start
+5.          symfony server:start -d
 6.          symfony open:local
 
 Enjoy!
