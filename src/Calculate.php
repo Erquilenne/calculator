@@ -6,8 +6,6 @@ namespace App;
 
 class Calculate
 {
-
-
     /**
      * @var int
      */
@@ -21,12 +19,7 @@ class Calculate
      */
     private $symbol;
 
-    public function __construct(int $first_number, int $second_number, string $symbol)
-    {
-        $this->first_number = $first_number;
-        $this->second_number = $second_number;
-        $this->symbol = $symbol;
-    }
+    private $calculate;
 
     public function calc()
     {
