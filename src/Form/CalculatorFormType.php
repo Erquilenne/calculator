@@ -18,10 +18,10 @@ class CalculatorFormType extends AbstractType
             ->add('first_number', NumberType::class, ['label' => 'Первое число'])
             ->add('symbol', ChoiceType::class, [
                 'choices' => [
-                '+' => '+',
-                '-' => '-',
-                '/' => '/',
-                '*' => '*',
+                'fold' => '+',
+                'subtract' => '-',
+                'divided' => '/',
+                'multiply' => '*',
             ],
                 'label' => 'Выберите знак'])
             ->add('second_number', NumberType::class, ['label' => 'Второе число'])
