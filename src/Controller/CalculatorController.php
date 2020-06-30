@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Calculate;
 use App\Form\CalculatorFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,7 +20,7 @@ class CalculatorController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $calculation = new Calculate($form->get('first_number')->getData(), $form->get('second_number')->getData(), $form->get('symbol')->getData());
+            $calculation = $form->getData();
             $result = $calculation->calc();
 
             $this->addFlash('success', 'Ответ: ' . $result);

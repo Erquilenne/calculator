@@ -6,8 +6,6 @@ namespace App;
 
 class Calculate
 {
-
-
     /**
      * @var int
      */
@@ -21,29 +19,39 @@ class Calculate
      */
     private $symbol;
 
-    public function __construct(int $first_number, int $second_number, string $symbol)
-    {
-        $this->first_number = $first_number;
-        $this->second_number = $second_number;
-        $this->symbol = $symbol;
-    }
+    private $calculate;
 
     public function calc()
     {
-        switch ($this->symbol) {
-            case '+':
-                return $this->first_number + $this->second_number;
-                break;
-            case '-':
-                return $this->first_number - $this->second_number;
-                break;
-            case '/':
-                return $this->first_number / $this->second_number;
-                break;
-            case '*':
-                return $this->first_number * $this->second_number;
-                break;
+        $methodCalculate = 'method'.ucfirst(strtolower($this->symbol));
+        if (method_exists($this, $methodCalculate)) {
+            return $this->{$methodCalculate}();
+        }
+        throw new \LogicException('Not found operation');
+    }
+
+    private function methodFold(): int
+    {
+        return (int)$this->first_number + $this->second_number;
+    }
+
+    private function methodSubtract(): int
+    {
+        return (int)$this->first_number - $this->second_number;
+    }
+
+    private function methodDivided(): float
+    {
+
+        if ($this->second_number === 0) {
+            throw new \LogicException('Not div on zero');
         }
 
+        return $this->first_number / $this->second_number;
+    }
+
+    private function methodMultiply(): int
+    {
+        return (int)$this->first_number * $this->second_number;
     }
 }
