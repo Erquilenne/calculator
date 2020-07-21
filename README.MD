@@ -1,4 +1,4 @@
-Hello! Welcome to calc!
+Hello! Welcome to test_task_calc!
 ======================
 Here is 2 calcs:
 --------------
